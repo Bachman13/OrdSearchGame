@@ -14,9 +14,5 @@ public class Program
         {
             System.Console.WriteLine(words);
         }
-
-
-
-
     }
 }
