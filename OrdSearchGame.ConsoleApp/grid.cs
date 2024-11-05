@@ -6,7 +6,7 @@ public class Grid
     {
         string path = @"CharactersToSelectFrom.txt";
         string readText = File.ReadAllText(path, Encoding.UTF8);
-        List<string> characterList = readText.Split("\n").ToList();
+        List<string> characterList = readText.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None).ToList();
 
         return characterList;
     }
@@ -29,11 +29,13 @@ public class Grid
 
     public void PrintGridNet(List<string> selectedCharacterList)
     {
+        int index = 0;
         for (int i = 0; i < 10; i++)
         {
             for (int j = 0; j < 10; j++)
             {
-                System.Console.Write(selectedCharacterList[i]);
+                System.Console.Write(selectedCharacterList[index] + "  ");
+                index++;
             }
             System.Console.WriteLine();
         }
