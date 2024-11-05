@@ -17,14 +17,23 @@ public class Program
 
         Grid grid = new Grid();
 
-        // grid.PrintGridNet();
 
         var characterList = grid.ReadCharacterFromFile();
         var selectedCharacters = grid.GenerateRandomCharacter(characterList);
+    
 
-        foreach(var c in selectedCharacters)
-        {
-            System.Console.WriteLine(c);
-        }
+        // foreach(var c in selectedCharacters)
+        // {
+        //     System.Console.WriteLine(c);
+        // }
+
+
+        var selectedCharacterList = grid.GenerateRandomCharacter(characterList);
+        grid.PrintGridNet(selectedCharacterList);
+
+        // foreach(var x in selectedCharacterList)
+        // {
+        //     System.Console.WriteLine(x);
+        // }
     }
 }

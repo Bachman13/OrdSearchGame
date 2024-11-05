@@ -14,9 +14,9 @@ public class Grid
     public List<string> GenerateRandomCharacter(List<string> characterList)
     {
         Random random = new Random();
-        List<string> selectedCharacterList = new List<string>{};
+        List<string> selectedCharacterList = new List<string> { };
 
-        for(int i = 0; i < 100; i++)
+        for (int i = 0; i < 100; i++)
         {
             var characterIndex = random.Next(characterList.Count());
             var character = characterList[characterIndex];
@@ -27,13 +27,13 @@ public class Grid
     }
 
 
-    public void PrintGridNet()
+    public void PrintGridNet(List<string> selectedCharacterList)
     {
-        for(int i = 0; i < 10; i++)
+        for (int i = 0; i < 10; i++)
         {
-            for(int j = 0; j < 10; j++)
+            for (int j = 0; j < 10; j++)
             {
-                System.Console.Write("*  ");
+                System.Console.Write(selectedCharacterList[i]);
             }
             System.Console.WriteLine();
         }
