@@ -11,30 +11,36 @@ public class Grid
         return characterList;
     }
 
-    public List<string> GenerateRandomCharacter(List<string> characterList)
+    public char[,] GenerateRandomCharacter(List<string> characterList)
     {
         Random random = new Random();
-        List<string> selectedCharacterList = new List<string> { };
+        char[,] selectedCharacterList = new char[10, 10];
 
-        for (int i = 0; i < 100; i++)
+        for(int i = 0; i < 10; i++)
         {
-            var characterIndex = random.Next(characterList.Count());
-            var character = characterList[characterIndex];
+            for(int j = 0; j < 10; j++)
+            {
+                var characterIndex = random.Next(characterList.Count);
+                var character = characterList[characterIndex][0];
 
-            selectedCharacterList.Add(character);
+                selectedCharacterList[i, j] = character;
+            }
         }
         return selectedCharacterList;
     }
 
 
-    public void PrintGridNet(List<string> selectedCharacterList)
+    // Add secretWords to Grid
+
+
+    public void PrintGridNet(char[,] selectedCharacterList)
     {
         int index = 0;
         for (int i = 0; i < 10; i++)
         {
             for (int j = 0; j < 10; j++)
             {
-                System.Console.Write(selectedCharacterList[index] + "  ");
+                System.Console.Write(selectedCharacterList[i, j] + "  ");
                 index++;
             }
             System.Console.WriteLine();
