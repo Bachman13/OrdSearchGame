@@ -30,8 +30,35 @@ public class Grid
     }
 
 
+    public List<(string, int, int)> ChoosingWordPosition(List<string> selectedWordList)
+    {
+        List<(string, int, int)> wordPositions = new List<(string, int, int)>();
+        Random random = new Random();
+
+        foreach(var word in selectedWordList)
+        {
+            bool wordPlacedCorrectly = false;
+            int startRow = 0; 
+            int startCol = 0;
+
+            while(!wordPlacedCorrectly)
+            {
+                startRow = random.Next(0, 10);
+                startCol = random.Next(0, 10);
+
+                if(startCol + word.Length <= 10)
+                {
+                    wordPlacedCorrectly = true;
+                }
+            }
+            wordPositions.Add((word, startCol, startRow));
+        }
+        return wordPositions;
+    }
     
-    // Add secretWords to Grid
+    // Funktionen ska välja ut en startposition för ordet i rutnätet.
+    // Positionen måste vara inom 10, 10 och ordet får inte gå utanför på sidan.
+    // Alltså kan inte ett ord på 5 bokstäver börja på col 6 då det blir 11 och är utanför. 
 
 
     public void PrintGridNet(char[,] selectedCharacterList)
@@ -47,4 +74,5 @@ public class Grid
             System.Console.WriteLine();
         }
     }
+
 }
