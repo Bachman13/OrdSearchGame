@@ -28,12 +28,26 @@ public class Program
         // }
 
 
-        var selectedCharacterList = grid.GenerateRandomCharacter(characterList);
-        grid.PrintGridNet(selectedCharacterList);
+        // var selectedCharacterList = grid.GenerateRandomCharacter(characterList);
+        // grid.PrintGridNet(selectedCharacterList);
 
         // foreach(var x in selectedCharacterList)
         // {
         //     System.Console.WriteLine(x);
         // }
+
+        List<string> characters = grid.ReadCharacterFromFile();
+        char[,] selectedCharacterList = grid.GenerateRandomCharacter(characters);
+        
+
+
+
+        selectedCharacterList[3,1] = 'B';
+        selectedCharacterList[3,2] = 'E';
+        selectedCharacterList[3,3] = 'A';
+        selectedCharacterList[3,4] = 'R';
+
+        grid.PrintGridNet(selectedCharacterList);
+        
     }
 }
