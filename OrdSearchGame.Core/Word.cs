@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace OrdSearchGame.Core;
+namespace OrdSearchGame;
 
 public class Word
 {
@@ -9,7 +9,7 @@ public class Word
     {
         string path = @"WordsToSelectFrom.txt";
         string readText = File.ReadAllText(path, Encoding.UTF8);
-        List<string> wordList = readText.Split("\n").ToList();
+        List<string> wordList = readText.Split("\r\n").ToList();
 
         return wordList;
     }

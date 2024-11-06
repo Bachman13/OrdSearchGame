@@ -1,5 +1,5 @@
 ﻿namespace OrdSearchGame.ConsoleApp;
-using OrdSearchGame.Core;
+using OrdSearchGame;
 
 public class Program
 {
@@ -28,10 +28,10 @@ public class Program
         // Varje gång ska bokstaven skrivas ut och sedan ska ++ så att vi får nästa bokstav?
 
         // selectedCharacterList[4, 4] = 'A';
-        System.Console.WriteLine("What five words are hidden in this grid? ");
+        System.Console.WriteLine("What five words are hidden in: ");
         foreach (var x in gridPos)
         {
-            // System.Console.WriteLine(x.Item1);
+            System.Console.WriteLine(x.Item1);
             // System.Console.WriteLine($"{x.Item1}, {x.Item2}, {x.Item3}");
             grid.PlacingWordOnStart(selectedCharacterList, x.Item1, x.Item2, x.Item3);
         }
@@ -39,5 +39,6 @@ public class Program
 
         grid.PrintGridNet(selectedCharacterList);
         System.Console.WriteLine();
+
     }
 }
