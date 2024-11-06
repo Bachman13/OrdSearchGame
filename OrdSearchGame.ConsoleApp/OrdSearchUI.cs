@@ -10,29 +10,35 @@ public class Program
 
         var wordList = word.ReadWordsFromFile();
         var selectedWords = word.GenerateRandomWords(wordList);
-        
+
         var characterList = grid.ReadCharacterFromFile();
         var selectedCharacters = grid.GenerateRandomCharacter(characterList);
-    
+
         List<string> characters = grid.ReadCharacterFromFile();
         char[,] selectedCharacterList = grid.GenerateRandomCharacter(characters);
-        
-        selectedWords = ["apple"];
+
+        // selectedWords = ["OCEAN"];
         var gridPos = grid.ChoosingWordPosition(selectedWords);
 
-        selectedCharacterList[4, 4] = 'A';
+        // startRow & startCol
 
-        foreach(var x in gridPos)
+
+
+        // Måste loopa ordet "apple" -> loop på 5 gånger.
+        // Varje gång ska bokstaven skrivas ut och sedan ska ++ så att vi får nästa bokstav?
+
+        // selectedCharacterList[4, 4] = 'A';
+        System.Console.WriteLine("Words to find in the grid: ");
+        foreach (var x in gridPos)
         {
-            System.Console.WriteLine($"{x.Item1}, {x.Item2}, {x.Item3}");
+            System.Console.WriteLine(x.Item1);
+            // System.Console.WriteLine($"{x.Item1}, {x.Item2}, {x.Item3}");
+            grid.PlacingWordOnStart(selectedCharacterList, x.Item1, x.Item2, x.Item3);
         }
-        // selectedCharacterList[3,1] = 'B';
-        // selectedCharacterList[3,2] = 'E';
-        // selectedCharacterList[3,3] = 'A';
-        // selectedCharacterList[3,4] = 'R';
-        
+        System.Console.WriteLine();
 
         grid.PrintGridNet(selectedCharacterList);
-        
+        System.Console.WriteLine();
+
     }
 }
